@@ -2,9 +2,8 @@ package itea.hmwk.hashmap;
 
 import java.util.Arrays;
 
-public class MyHashMap implements MyHashMapMethods {
+public class MyHashMap implements HashMap {
     private int size = 16;
-
     private Entry table[] = new Entry[size];
 
     static class Entry {
@@ -20,11 +19,9 @@ public class MyHashMap implements MyHashMapMethods {
         public String getValue() {
             return value;
         }
-
         public void setValue(String value) {
             this.value = value;
         }
-
         public String getKey() {
             return key;
         }
@@ -50,7 +47,6 @@ public class MyHashMap implements MyHashMapMethods {
         Entry e = table[hash];
 
         if (e != null) {
-
             if (e.key.equals(key)) {
                 e.value = value;
             } else {
@@ -68,9 +64,7 @@ public class MyHashMap implements MyHashMapMethods {
 
     @Override
     public void clear() {
-        for (int i = 0; i < table.length; i++) {
-            table[i] = null;
-        }
+        table = new Entry[size];
     }
 
     @Override

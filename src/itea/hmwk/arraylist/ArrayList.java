@@ -1,6 +1,6 @@
 package itea.hmwk.arraylist;
 
-public interface ArrayListMethods {
+public interface ArrayList {
     void add(int num);
     void remove(int index);
     int size();
