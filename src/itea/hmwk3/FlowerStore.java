@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlowerStore {
-    Flowers fFirst = new Flowers();
+    private double wallet = 0;
 
     public List<Flowers> sell(int countRose, int countChamomile, int countTulip) {
         List<Flowers> bunchOfFlowers = new ArrayList<>();
@@ -19,25 +19,38 @@ public class FlowerStore {
                 bunchOfFlowers.add(new Tulip());
             }
         }
+        moneyInShop(bunchOfFlowers);
 
         return bunchOfFlowers;
     }
 
     public List<Flowers> sellSequence(int countRose, int countChamomile, int countTulip) {
-        List<Flowers> bunchOfFlowers = new ArrayList<>(countRose+countChamomile+countTulip);
-        int max = Math.max(countRose,countChamomile);
-        max = Math.max(max,countTulip);
+        List<Flowers> bunchOfFlowers = new ArrayList<>(countRose + countChamomile + countTulip);
+        int max = Math.max(countRose, countChamomile);
+        max = Math.max(max, countTulip);
 
-        for(int i = 0; i < max; i++){
-            if(i < countRose){
-                bunchOfFlowers.add(new Rose());
-            }else if(i < countChamomile){
-                bunchOfFlowers.add(new Chamomile());
-            }else if(i < countTulip){
-                bunchOfFlowers.add(new Tulip());
+        for (int i = 0; i < max; i++) {
+            if (i < countRose) {
+                bunchOfFlowers
+                        .add(new Rose());
+            }
+            if (i < countChamomile) {
+                bunchOfFlowers
+                        .add(new Chamomile());
+            }
+            if (i < countTulip) {
+                bunchOfFlowers
+                        .add(new Tulip());
             }
         }
+        moneyInShop(bunchOfFlowers);
 
         return bunchOfFlowers;
+    }
+
+    public void moneyInShop(List<Flowers> flowers) {
+        for (Flowers f : flowers) {
+            wallet += f.getPrice();
+        }
     }
 }
