@@ -54,8 +54,8 @@ public class MyArrayList implements ArrayList {
 
     @Override
     public String toString() {
-        return "MyArrayList{" +
-                "array=" + Arrays.toString(array) +
-                '}';
+        return "MyArrayList{"
+                + "array=" + Arrays.toString(array)
+                + '}';
     }
 }
