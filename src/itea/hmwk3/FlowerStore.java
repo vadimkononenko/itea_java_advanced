@@ -20,7 +20,6 @@ public class FlowerStore {
             }
         }
         moneyInShop(bunchOfFlowers);
-
         return bunchOfFlowers;
     }
 
@@ -44,7 +43,6 @@ public class FlowerStore {
             }
         }
         moneyInShop(bunchOfFlowers);
-
         return bunchOfFlowers;
     }
 
