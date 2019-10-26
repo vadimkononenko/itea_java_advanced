@@ -1,4 +1,4 @@
-package itea.hmwk3;
+package itea.task3;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,12 +10,11 @@ public class FlowersSaver {
         try {
             FileWriter fw = new FileWriter(path);
             BufferedWriter bw = new BufferedWriter(fw);
-            for (Flowers f : flowers) {
-                bw.write(f.toString());
-            }
+            flowers.forEach(f -> f.toString());
             bw.flush();
             bw.close();
         } catch (IOException e) {
+            System.out.println("Problem with writing in file");
             e.printStackTrace();
         }
     }
