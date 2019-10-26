@@ -1,4 +1,4 @@
-package itea.hmwk3;
+package itea.task3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +47,6 @@ public class FlowerStore {
     }
 
     public void moneyInShop(List<Flowers> flowers) {
-        for (Flowers f : flowers) {
-            wallet += f.getPrice();
-        }
+        flowers.forEach(f -> wallet += f.getPrice());
     }
 }
