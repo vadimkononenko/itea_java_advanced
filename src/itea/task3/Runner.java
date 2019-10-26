@@ -1,4 +1,4 @@
-package itea.hmwk3;
+package itea.task3;
 
 import java.util.List;
 
@@ -7,15 +7,11 @@ public class Runner {
         FlowerStore fs = new FlowerStore();
         List<Flowers> flowersF = fs.sell(2,4,5);
 
-        for(Flowers f : flowersF){
-            System.out.print(f + ",");
-        }
+        flowersF.stream().map(f -> f + ",").forEach(System.out::print);
 
         System.out.println();
 
         List<Flowers> flowersS = fs.sellSequence(2,4,5);
-        for(Flowers f : flowersS){
-            System.out.print(f + ",");
-        }
+        flowersS.stream().map(f -> f + ",").forEach(System.out::print);
     }
 }
