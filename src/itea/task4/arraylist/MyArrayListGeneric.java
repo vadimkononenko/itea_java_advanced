@@ -1,40 +1,39 @@
-package itea.hmwk.arraylist;
+package itea.task4.arraylist;
 
 import java.util.Arrays;
 
-public class MyArrayList implements ArrayList {
-    private int array[];
+public class MyArrayListGeneric<T> implements ArrayList<T> {
+    private Object array[];
     private int size;
 
-    public MyArrayList() {
-        array = new int[10];
+    public MyArrayListGeneric() {
+        array = new Object[10];
         size = 0;
     }
 
     @Override
-    public void add(int num) {
+    public void add(T item) {
         if (size == array.length - 1) {
-            int newArr[] = new int[array.length * 2];
+            Object newArr[] = new Object[array.length * 2];
             System.arraycopy(array, 0, newArr, 0, size);
             array = newArr;
         }
-        array[size++] = num;
+        array[size++] = item;
     }
 
     @Override
     public void clear() {
-        array = new int[10];
+        array = new Object[10];
     }
 
     @Override
-    public int size() {
+    public Object size() {
         return getSize();
     }
 
     @Override
-    public int get(int index) {
-        int res = array[index];
-        return res;
+    public Object get(int index) {
+        return array[index];
     }
 
     @Override
@@ -44,7 +43,7 @@ public class MyArrayList implements ArrayList {
         }
     }
 
-    public int[] getArray() {
+    public Object[] getArray() {
         return array;
     }
 
@@ -54,8 +53,9 @@ public class MyArrayList implements ArrayList {
 
     @Override
     public String toString() {
-        return "MyArrayList{"
-                + "array=" + Arrays.toString(array)
-                + '}';
+        return "MyArrayListGeneric{" +
+                "array=" + Arrays.toString(array) +
+                ", size=" + size +
+                '}';
     }
 }
