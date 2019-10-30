@@ -1,34 +1,36 @@
-package itea.hmwk.hashmap;
+package itea.task4.hashmap;
 
 import java.util.Arrays;
 
-public class MyHashMap implements HashMap {
+public class MyHashMapGeneric<K, V> implements HashMap<K, V> {
     private int size = 16;
-    private Entry table[] = new Entry[size];
+    private Entry[] table = new Entry[16];
 
-    static class Entry {
-        final String key;
-        String value;
+    class Entry<K,V> {
+        final K key;
+        V value;
         Entry next;
 
-        public Entry(String key, String value) {
+        public Entry(K key, V value) {
             this.key = key;
             this.value = value;
         }
 
-        public String getValue() {
+        public V getValue() {
             return value;
         }
-        public void setValue(String value) {
+
+        public void setValue(V value) {
             this.value = value;
         }
-        public String getKey() {
+
+        public K getKey() {
             return key;
         }
     }
 
     @Override
-    public Entry get(String key) {
+    public Entry get(K key) {
         int hash = key.hashCode() % size;
         Entry e = table[hash];
 
@@ -42,7 +44,7 @@ public class MyHashMap implements HashMap {
     }
 
     @Override
-    public void put(String key, String value) {
+    public void put(K key, V value) {
         int hash = key.hashCode() % size;
         Entry e = table[hash];
 
@@ -68,14 +70,14 @@ public class MyHashMap implements HashMap {
     }
 
     @Override
-    public void remove(String key) {
+    public void remove(K key) {
         int hash = key.hashCode() % size;
         Entry e = table[hash];
 
         for (int i = 0; i < table.length; i++) {
             if (table[i] == table[hash] && e.key.equals(key)) {
                 for (int j = i; j < table.length - i; j++) {
-                    table[j] = table[j+1];
+                    table[j] = table[j + 1];
                 }
             }
             return;
@@ -89,7 +91,7 @@ public class MyHashMap implements HashMap {
 
     @Override
     public String toString() {
-        return "MyHashMap{" +
+        return "MyHashMapGeneric{" +
                 "table=" + Arrays.toString(table) +
                 '}';
     }
